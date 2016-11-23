@@ -1,0 +1,29 @@
+﻿
+ @using Entidades
+@{
+    List<Categoria> Listado = ViewBag.ListadoCategoria as List<Categoria>;
+}
+
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>CODIGO</td>
+        <td>DESCRIPCION</td>
+        <td>ESTADO</td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (Categoria obj in Listado)
+    {
+        <tr>
+            <td>@obj.IdCategoria</td>
+            <td>@obj.Codigo</td>
+            <td>@obj.Descripcion</td>
+            <td>@obj.Estado</td>
+            <td>@Html.ActionLink("Editar","","",new {idCategoria = obj.IdCategoria},null)</td>
+
+        </tr>
+    }
+    </tbody>
+</table>
